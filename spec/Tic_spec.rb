@@ -1,4 +1,6 @@
+require_relative '../bin/main'
 require_relative '../lib/game_logic'
+
 
 player = Player.new("mohamed","X")
 game   = Game.new
@@ -105,3 +107,13 @@ describe Game do
         end
     end
 end
+
+
+# TESTING WRONG INPUTS
+describe "#exists" do
+    it "returns 'false' when negative" do
+        expect(exists(-1, board.board)).to eq(false)
+    end
+end
+
+
