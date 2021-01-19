@@ -1,6 +1,4 @@
-require_relative '../bin/main'
 require_relative '../lib/game_logic'
-
 
 player = Player.new("mohamed","X")
 game   = Game.new
@@ -110,10 +108,39 @@ end
 
 
 # TESTING WRONG INPUTS
+
+
 describe "#exists" do
+
+    # Negative Values
     it "returns 'false' when negative" do
+        board = Board.new
         expect(exists(-1, board.board)).to eq(false)
     end
+
+    # String Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        expect(exists("x", board.board)).to eq(false)
+    end
+
+    # Taken Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        board.update_board(3, "O")
+        expect(exists(3, board.board)).to eq(false)
+    end
+
+    # Not in 1..9 Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        expect(exists(10, board.board)).to eq(false)
+    end
 end
+
+
+
+
+
 
 

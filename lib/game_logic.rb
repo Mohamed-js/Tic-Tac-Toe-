@@ -69,4 +69,7 @@ class Game
   end
 end
 
-
+public
+def exists(p_one,board)
+  board.include?(p_one)
+end
