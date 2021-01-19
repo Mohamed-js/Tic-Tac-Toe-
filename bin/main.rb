@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockNesting
 
@@ -35,7 +36,6 @@ game = Game.new
 
 repeat = true
 
-
 while repeat
   board = Board.new
   game_on = true
@@ -49,9 +49,6 @@ while repeat
     movement = false
     while movement == false
       p_one = gets.chomp.to_i
-      def exists(p_one,board)
-        board.include?(p_one)
-      end
       if exists(p_one, board.board)
         movement = true
         board.update_board(p_one, player1.symbol)
@@ -116,9 +113,6 @@ while repeat
     movement = false
     while movement == false
       p_two = gets.chomp.to_i
-      def exists(p_two,board)
-        board.include?(p_two)
-      end
       if exists(p_two, board.board)
         movement = true
         board.update_board(p_two, player2.symbol)

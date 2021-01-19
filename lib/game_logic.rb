@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class player
 class Player
   attr_reader :name, :symbol
@@ -71,6 +73,7 @@ end
 
 # Mock method to test..
 public
-def exists(p_one,board)
+
+def exists(p_one, board)
   board.include?(p_one)
 end
