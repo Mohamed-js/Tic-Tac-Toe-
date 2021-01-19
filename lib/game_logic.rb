@@ -69,6 +69,7 @@ class Game
   end
 end
 
+# Mock method to test..
 public
 def exists(p_one,board)
   board.include?(p_one)
