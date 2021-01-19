@@ -2,7 +2,11 @@
 
 # RSpec Testing for Tic Tac Toe
 
-> Testing Tic Tac Toe game using RSpec framework
+> Testing Tic Tac Toe game using RSpec framework for TDD industry standard.
+Implemented tests for
+- Board update
+- Winning check
+- Wrong inputs
 
 # Screenshot 
 
@@ -26,11 +30,12 @@ Install rspec following this guide: [Install](https://www.theodinproject.com/cou
 ### Usage
 
 - Open your terminal (CTRL + ALT + T) and clone the repository of this project.
-- `cd` to the directory 
+- `cd` to the directory of the cloned repository.
 
 ### Run tests
 
 - run `rspec` to run the tests
+- play around with values on the tests in tic_spec.rb
 
 
 ## Authors
