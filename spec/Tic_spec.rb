@@ -15,6 +15,13 @@ describe Player do
             expect(player.symbol).to eq("X")
         end
     end
+
+    describe '#set_winnings' do
+        it "increases number of winnings" do
+            player.set_winnings
+            expect(player.winnings).to eq (1)
+        end
+    end
 end
 
 
@@ -70,6 +77,31 @@ describe Game do
             board.update_board(6, "O")
             board.update_board(9, "O")
             expect(game.check_win(board.board, player)).to eq(player)
+        end
+    end
+
+    # CHECK DIAGONAL WINNINGS
+    describe "check_win" do
+        it "returns the winner when diagonal wins" do
+            board = Board.new
+            board.update_board(1, "O")
+            board.update_board(5, "O")
+            board.update_board(9, "O")
+            expect(game.check_win(board.board, player)).to eq(player)
+        end
+        it "returns the winner when diagonal wins" do
+            board = Board.new
+            board.update_board(3, "O")
+            board.update_board(5, "O")
+            board.update_board(7, "O")
+            expect(game.check_win(board.board, player)).to eq(player)
+        end
+    end
+
+    describe "#set_draws" do
+        it "increases number of draws" do
+            game.set_draws
+            expect(game.draws).to eq (1)
         end
     end
 end
