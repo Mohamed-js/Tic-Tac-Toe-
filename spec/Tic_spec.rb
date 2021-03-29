@@ -15,6 +15,13 @@ describe Player do
             expect(player.symbol).to eq("X")
         end
     end
+
+    describe '#set_winnings' do
+        it "increases number of winnings" do
+            player.set_winnings
+            expect(player.winnings).to eq (1)
+        end
+    end
 end
 
 
@@ -72,4 +79,62 @@ describe Game do
             expect(game.check_win(board.board, player)).to eq(player)
         end
     end
+
+    # CHECK DIAGONAL WINNINGS
+    describe "check_win" do
+        it "returns the winner when diagonal wins" do
+            board = Board.new
+            board.update_board(1, "O")
+            board.update_board(5, "O")
+            board.update_board(9, "O")
+            expect(game.check_win(board.board, player)).to eq(player)
+        end
+        it "returns the winner when diagonal wins" do
+            board = Board.new
+            board.update_board(3, "O")
+            board.update_board(5, "O")
+            board.update_board(7, "O")
+            expect(game.check_win(board.board, player)).to eq(player)
+        end
+    end
+
+    describe "#set_draws" do
+        it "increases number of draws" do
+            game.set_draws
+            expect(game.draws).to eq (1)
+        end
+    end
 end
+
+
+# TESTING WRONG INPUTS
+
+
+describe "#exists" do
+
+    # Negative Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        expect(exists(-1, board.board)).to eq(false)
+    end
+
+    # String Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        expect(exists("x", board.board)).to eq(false)
+    end
+
+    # Taken Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        board.update_board(3, "O")
+        expect(exists(3, board.board)).to eq(false)
+    end
+
+    # Not in 1..9 Values
+    it "returns 'false' when negative" do
+        board = Board.new
+        expect(exists(10, board.board)).to eq(false)
+    end
+end
+
